@@ -1,0 +1,2 @@
+# sgbl
+squidguardblacklist
