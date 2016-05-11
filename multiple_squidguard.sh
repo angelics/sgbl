@@ -144,16 +144,16 @@ bunzip2 online-valid.csv.bz2
 # remove line
 cat online-valid.csv | sed 's/^[0-9]*,//' > BL/PSHTNK/urls
 cat BL/PSHTNK/urls | sed 's@,http://www.phishtank.com/phish_detail.php?phish_id=[0-9]*,.*$@@' > BL/PSHTNK/urls.temp
-cat BL/PSHTNK/urls.temp | sed 's/^"\(.*\)"$/\1/' > BL/PSHTNK/urls.temp2
-cat BL/PSHTNK/urls.temp2 | sed '/phish_id/d' > BL/PSHTNK/urls.temp
+cat BL/PSHTNK/urls.temp | sed 's/^"\(.*\)"$/\1/' > BL/PSHTNK/urls
+cat BL/PSHTNK/urls | sed '/phish_id/d' > BL/PSHTNK/urls.temp
 
 # format
-cat BL/PSHTNK/urls.temp | sed -r 's/http:\/\///' > BL/PSHTNK/urls.temp2
-cat BL/PSHTNK/urls.temp2 | sed -r 's/https:\/\///' > BL/PSHTNK/urls
+cat BL/PSHTNK/urls.temp | sed -r 's/http:\/\///' > BL/PSHTNK/urls
+cat BL/PSHTNK/urls | sed -r 's/https:\/\///' > BL/PSHTNK/urls.temp
+cat BL/PSHTNK/urls.temp > BL/PSHTNK/urls
 
 # remove temp
 rm BL/PSHTNK/urls.temp
-rm BL/PSHTNK/urls.temp2
 
 # angelics - gamble
 # create ang_gamble folder
