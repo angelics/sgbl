@@ -149,7 +149,7 @@ cat BL/PSHTNK/urls.temp2 | sed '/phish_id/d' > BL/PSHTNK/urls.temp
 
 # format
 cat BL/PSHTNK/urls.temp | sed -r 's/http:\/\///' > BL/PSHTNK/urls.temp2
-cat BL/PSHTNK/urls.temp2 | sed -r 's/https:\/\///' > BL/PSHTNK/urls.temp
+cat BL/PSHTNK/urls.temp2 | sed -r 's/https:\/\///' > BL/PSHTNK/urls
 
 # remove temp
 rm BL/PSHTNK/urls.temp
