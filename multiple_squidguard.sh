@@ -6,7 +6,7 @@ cd /tmp/angpfsense
 
 # shallalist
 # download
-fetch http://www.shallalist.de/Downloads/shallalist.tar.gz
+fetch [shallalist]
 
 # extract
 tar -zxvf shallalist.tar.gz
@@ -16,7 +16,7 @@ tar -zxvf shallalist.tar.gz
 mkdir -p BL/ATS
 
 # download
-fetch http://hosts-file.net/ad_servers.txt
+fetch [hp-hosts_ats]
 
 # remove line
 cat ad_servers.txt | sed '/localhost/d' > BL/ATS/domains
@@ -50,7 +50,7 @@ rm BL/EMD/domains.temp
 mkdir -p BL/FSA
 
 # download
-fetch http://hosts-file.net/fsa.txt
+fetch [hp-hosts-fsa]
 
 # remove line
 cat fsa.txt | sed '/localhost/d' > BL/FSA/domains
@@ -67,7 +67,7 @@ rm BL/FSA/domains.temp
 mkdir -p BL/EXP
 
 # download
-fetch http://hosts-file.net/exp.txt
+fetch [hp-hosts_exp]
 
 # remove line
 cat exp.txt | sed '/localhost/d' > BL/EXP/domains
@@ -84,7 +84,7 @@ rm BL/EXP/domains.temp
 mkdir -p BL/PSH
 
 # download
-fetch http://hosts-file.net/psh.txt
+fetch [hp-hosts-psh]
 
 # remove line
 cat psh.txt | sed '/localhost/d' > BL/PSH/domains
@@ -101,7 +101,7 @@ rm BL/PSH/domains.temp
 mkdir -p BL/mdl
 
 # download
-fetch http://www.malwaredomainlist.com/hostslist/hosts.txt
+fetch [malwaredomainlist]
 
 # remove line
 cat hosts.txt | sed '/localhost/d' > BL/mdl/domains
@@ -118,7 +118,7 @@ rm BL/mdl/domains.temp
 mkdir -p BL/DNSBH
 
 # download
-fetch http://mirror1.malwaredomains.com/files/justdomains
+fetch [dnsbh]
 cat justdomains > BL/DNSBH/domains
 
 # openphish
@@ -126,7 +126,7 @@ cat justdomains > BL/DNSBH/domains
 mkdir -p BL/OPNPSH
 
 # download
-fetch https://www.openphish.com/feed.txt
+fetch [openphish]
 
 # format
 cat feed.txt | sed -r 's/http:\/\///' > BL/OPNPSH/urls
@@ -136,7 +136,7 @@ cat feed.txt | sed -r 's/http:\/\///' > BL/OPNPSH/urls
 mkdir -p BL/PSHTNK
 
 # download
-fetch https://data.phishtank.com/data/online-valid.csv.bz2
+fetch [phishtank]
 
 # extract
 bunzip2 online-valid.csv.bz2
@@ -160,7 +160,7 @@ rm BL/PSHTNK/urls.temp2
 mkdir -p BL/ang_gamble
 
 # download
-fetch https://raw.githubusercontent.com/angelics/sgbl/master/gamble/domains
+fetch [github_ang-gamble]
 
 # copy to folder
 cp domains BL/ang_gamble
