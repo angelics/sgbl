@@ -165,6 +165,26 @@ fetch [github_ang-gamble]
 # copy to folder
 cp domains BL/ang_gamble
 
+# iblocklist
+# Make category folder
+mkdir -p BL/iblocklist
+
+# download
+fetch -o qlprgwgdkojunfdlzsiv.gz [iblocklists-hosts]
+
+# extract
+gunzip qlprgwgdkojunfdlzsiv.gz
+
+# Remove lines which do not matter
+cat qlprgwgdkojunfdlzsiv | sed '/localhost/d' > BL/iblocklist/domains
+cat BL/iblocklist/domains | sed '/^#/d' > BL/iblocklist/domains.temp
+
+# Format it for pfsense
+cat BL/iblocklist/domains.temp | sed -r 's/127.0.0.1 //' > BL/iblocklist/domains
+
+# Remove temp file
+rm BL/iblocklist/domains.temp
+
 # create package
 tar -caf angpfsense.tar.gz BL
 
