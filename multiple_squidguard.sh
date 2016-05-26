@@ -173,7 +173,7 @@ mkdir -p BL/iblocklist
 fetch -o qlprgwgdkojunfdlzsiv.gz [iblocklists-hosts]
 
 # extract
-gunzip qlprgwgdkojunfdlzsiv.gz
+gunzip -f qlprgwgdkojunfdlzsiv.gz
 
 # Remove lines which do not matter
 cat qlprgwgdkojunfdlzsiv | sed '/localhost/d' > BL/iblocklist/domains
