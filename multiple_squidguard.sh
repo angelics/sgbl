@@ -185,6 +185,16 @@ cat BL/iblocklist/domains.temp | sed -r 's/127.0.0.1 //' > BL/iblocklist/domains
 # Remove temp file
 rm BL/iblocklist/domains.temp
 
+# cybercrime-tracker
+# Make category folder
+mkdir -p BL/cctracker
+
+# download
+fetch [cybercrime-tracker]
+
+# convert to squid url list
+cat all.php > BL/cctracker/urls
+
 # create package
 tar -caf angpfsense.tar.gz BL
 
